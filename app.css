@@ -1,3 +1,10 @@
+@font-face {
+    font-family: 'AnuHindi';
+    font-style: normal;
+    font-weight: 400;
+    src: local('AnuHindi'), url('AnuHindi.otf') format('opentype');
+ }
+
 body {
     font-family: 'Tangerine', cursive;
     font-size: 30px;
@@ -6,6 +13,11 @@ body {
 #quote_book_container {
     padding: 50px;
 }
+
+.hindi {
+    font-family: 'AnuHindi'
+}
+
 .book .page {
     height: 100%;
     color: brown;
