@@ -22,9 +22,24 @@ body {
     height: 100%;
     color: brown;
     background-color:wheat;
-    font-size:40px;
     text-align:center;
     display: table;
+}
+.quote {
+    vertical-align:middle;
+    display: table-cell;
+}
+
+.quote .en {
+    font-size:40px;
+}
+
+.quote .hi {
+    font-size:23px;
+}
+
+.quote.title {
+    font-size:60px
 }
 
 .book .hard {
@@ -34,11 +49,6 @@ body {
 
 .book .page.odd {
     border-left: 3px solid brown;
-}
-
-.quote {
-    vertical-align:middle;
-    display: table-cell;
 }
 
 .book {

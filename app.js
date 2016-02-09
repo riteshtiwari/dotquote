@@ -9,8 +9,8 @@ function init_ui(){
     if(ready) return;
     $('#overlay').hide();
     $("#quote_book").turn({
-      width: 600,
-      height: 400,
+      width: 700,
+      height: 500,
       autoCenter: false
     });
     add_cover_page();
@@ -23,13 +23,13 @@ function init_ui(){
 
 function add_cover_page(){
     // add cover page
-    var element = $("<div />", {"class": "hard page"}).html("<p class='quote'>The Book of Quotes<br>- Baba Dot</p>");
+    var element = $("<div />", {"class": "hard page"}).html("<p class='quote title'>The Book of Quotes<br>- Baba Dot</p>");
     $("#quote_book").turn("addPage", element);
 }
 
 function add_back_cover(){
   // add back cover page
-  var element = $("<div />", {"class": "hard page"}).html("<p class='quote'>The End.</p>");
+  var element = $("<div />", {"class": "hard page"}).html("<p class='quote title'>The End.</p>");
   $("#quote_book").turn("addPage", element);
 }
 
@@ -49,7 +49,7 @@ function add_quote(quote){
 
 function init(){
     $('#quote_book').hide();
-    _t_quote = _.template("<span class='quote'> <%= quote %><br> - <small><%= author %></small></span>");
+    _t_quote = _.template("<div class='quote'><p class='hi'> <%= quote.hi %></p><p class='en'> <%= quote.en %></p> <p><small> - <%= author %></small></p></div>");
     _t_detail = _.template("<p class='quote'> <%= detail %></p>");
      quotes_db = new Firebase('https://glaring-torch-9946.firebaseio.com/quotes');
     quotes_db.on('child_added', function (quote_ref, prev_quote) {
