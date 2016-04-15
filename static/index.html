@@ -1,28 +1,332 @@
-<html>
+<!DOCTYPE html>
+<html class="no-js">
 <head>
-    <script src="https://cdn.firebase.com/js/client/2.2.1/firebase.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-    <script src="lib/turn.min.js"></script>
-    <link rel="stylesheet" href="app.css">
-    <script src="app.js"></script>
-    <link href='https://fonts.googleapis.com/css?family=Tangerine' rel='stylesheet' type='text/css'>
-    <script>
-        $(function(){
-            init();
+	<meta charset="utf-8">
+	<title></title>
+	<meta name="description" content="">
+	<meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="320">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui,maximum-scale=2">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui,maximum-scale=1">
+	<meta http-equiv="cleartype" content="on">
 
-        });
-    </script>
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/touch/apple-touch-icon-144x144-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/touch/apple-touch-icon-114x114-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/touch/apple-touch-icon-72x72-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" href="img/touch/apple-touch-icon-57x57-precomposed.png">
+	<link rel="shortcut icon" sizes="196x196" href="img/touch/touch-icon-196x196.png">
+	<link rel="shortcut icon" href="img/touch/apple-touch-icon.png">
+
+	<!-- Tile icon for Win8 (144x144 + tile color) -->
+	<meta name="msapplication-TileImage" content="img/touch/apple-touch-icon-144x144-precomposed.png">
+	<meta name="msapplication-TileColor" content="#222222">
+
+	<!-- SEO: If mobile URL is different from desktop URL, add a canonical link to the desktop page -->
+	<!--
+	<link rel="canonical" href="http://www.example.com/" >
+	-->
+
+	<!-- Add to homescreen for Chrome on Android -->
+	<!--
+	<meta name="mobile-web-app-capable" content="yes">
+	-->
+
+	<!-- For iOS web apps. Delete if not needed. https://github.com/h5bp/mobile-boilerplate/issues/94 -->
+	<!--
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<meta name="apple-mobile-web-app-title" content="">
+	-->
+
+	<!-- This script prevents links from opening in Mobile Safari. https://gist.github.com/1042026 -->
+	<!--
+	<script>(function(a,b,c){if(c in b&&b[c]){var d,e=a.location,f=/^(a|html)$/i;a.addEventListener("click",function(a){d=a.target;while(!f.test(d.nodeName))d=d.parentNode;"href"in d&&(d.href.indexOf("http")||~d.href.indexOf(e.host))&&(a.preventDefault(),e.href=d.href)},!1)}})(document,window.navigator,"standalone")</script>
+	-->
+
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="wow_book/wow_book.css" type="text/css" />
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/style.css">
+
+	<script src="js/vendor/modernizr-2.7.1.min.js"></script>
 </head>
 <body>
-    <span class="hindi">A</span> Hindi Viram test <span class="hindi">A</span>
-    <div id="quote_book_container">
-    <div id="overlay">Loading...</div>
-    <div id="quote_book" class="book">
-        <div class="hard page"> <div class="quote"> Quotes </div>  </div>
-    </div>
-    </div>
+
+
+
+<div class="list">
+	<img src="img/close.png" width="30" height="30" alt="close" class="close-btn" onClick="$(this).parent().fadeOut()">
+	<nav>
+		<ul>
+			<li data-id="0"><a><span>01</span> Front Cover</a></li>
+			<li data-id="1"><a><span>02</span> The World is round and so are you</a></li>
+			<li data-id="2"><a><span>03</span> It means you are stupid</a></li>
+			<li data-id="3"><a><span>04</span> The World is round and so are you</a></li>
+			<li data-id="4"><a><span>05</span> It means you are stupid</a></li>
+			<li data-id="5"><a><span>06</span> The World is round and so are you</a></li>
+			<li data-id="6"><a><span>07</span> It means you are stupid</a></li>
+			<li data-id="7"><a><span>08</span> The World is round and so are you</a></li>
+			<li data-id="8"><a><span>09</span>  It means you are stupid</a></li>
+			<li data-id="9"><a><span>10</span> The World is round and so are you</a></li>
+			<li data-id="10"><a><span>11</span> It means you are stupid</a></li>
+			<li data-id="11"><a><span>12</span> The World is round and so are you</a></li>
+			<li data-id="12"><a><span>13</span> It means you are stupid</a></li>
+			<li data-id="13"><a><span>14</span> The World is round and so are you</a></li>
+			<li data-id="14"><a><span>15</span> It means you are stupid</a></li>
+			<li data-id="15"><a><span>16</span> Back Cover</a></li>
+		</ul>
+	</nav>
+</div>
+
+
+
+
+<div class="wrapper">
+<div class="back-border">
+
+	<header class="home-animation">
+
+        <div class="to-arrow">
+            <div class="top" id="menu">
+                <input type="checkbox" id="menu-top"/>
+                <label for="menu-top" style="cursor:pointer;" id="show-menu"><span></span></label>
+            </div>
+        </div>
+
+    </header>
+
+
+
+
+	<!-- Add your site or application content here -->
+	<div class='book_container'>
+
+		<nav>
+			<ul>
+				<li><a href="index.html">HOME</a></li>
+				<li><a href="theproject.html">THE PROJECT</a></li>
+				<!-- <li><a href="">THE STORE</a></li> -->
+				<!-- <li><a href="">BUYING INFO</a></li> -->
+				<li><a href="">CONTACT</a></li>
+			</ul>
+		</nav>
+
+		<div id="book">
+			<div class="page">
+				<p class="cover"></p>
+			</div>
+			<div class="page">
+				<p class="inner-page">It means you are stupid</p>
+			</div>
+			<div class="page">
+				<p class="inner-page">The World is round and so are you</p>
+			</div>
+			<div class="page">
+				<p class="inner-page">It means you are stupid</p>
+			</div>
+			<div class="page">
+				<p class="inner-page">The World is round and so are you</p>
+			</div>
+			<div class="page">
+				<p class="inner-page">It means you are stupid</p>
+			</div>
+			<div class="page">
+				<p class="inner-page">The World is round and so are you</p>
+			</div>
+			<div class="page">
+				<p class="inner-page">It means you are stupid</p>
+			</div>
+			<div class="page">
+				<p class="inner-page">The World is round and so are you</p>
+			</div>
+			<div class="page">
+				<p class="back-cover"><span><img src="img/school.png" width="170" height="70" alt="front"></span></p>
+			</div>
+
+
+		</div>
+	</div>
+
+
+
+
+	<!----Buttons-------------->
+	<div class="div-button" id="divButton">
+
+            <ul>
+
+                <li>
+                    <a class="button" onClick="$('.list, .list nav').fadeIn()">
+
+                        <svg viewBox="0 -13.25 500 500">
+                                <g>
+                                    <path d="M147.678,99.096c0,10.541,8.624,19.164,19.164,19.164h271.491c10.542,0,19.165-8.624,19.165-19.164
+                                        s-8.623-19.164-19.165-19.164H166.842C156.302,79.932,147.678,88.556,147.678,99.096z"/>
+                                    <path d="M166.842,261.992h271.491c10.542,0,19.165-8.624,19.165-19.163c0-10.542-8.623-19.165-19.165-19.165
+                                        H166.842c-10.541,0-19.164,8.624-19.164,19.165C147.678,253.368,156.302,261.992,166.842,261.992z"/>
+                                    <path d="M166.842,405.723h271.491c10.542,0,19.165-8.623,19.165-19.164s-8.623-19.164-19.165-19.164H166.842
+                                        c-10.541,0-19.164,8.623-19.164,19.164S156.302,405.723,166.842,405.723z"/>
+                                    <path d="M48.664,118.26h31.94c10.541,0,19.164-8.624,19.164-19.164s-8.624-19.164-19.164-19.164h-31.94
+                                        c-10.54,0-19.164,8.624-19.164,19.164S38.124,118.26,48.664,118.26z"/>
+                                    <path d="M48.664,261.992h31.94c10.541,0,19.164-8.624,19.164-19.163c0-10.542-8.624-19.165-19.164-19.165h-31.94
+                                        c-10.54,0-19.164,8.624-19.164,19.165C29.5,253.368,38.124,261.992,48.664,261.992z"/>
+                                    <path d="M48.664,405.723h31.94c10.541,0,19.164-8.623,19.164-19.164s-8.624-19.164-19.164-19.164h-31.94
+                                        c-10.54,0-19.164,8.623-19.164,19.164S38.124,405.723,48.664,405.723z"/>
+                                </g>
+                            </svg>
+
+                    </a>
+                </li>
+                <li>
+									<a href="thepayment.html">Buy</a>
+                    <!-- <a class="button" href="" target="thepayment.html" > -->
+
+                        <!-- <svg viewBox="0 -13.25 500 500">
+                            <g>
+                                <path  d="M45.814,65.504h46.768l66.618,240.91c1.903,7.071,8.429,11.965,15.77,11.965h204.748
+                                        c6.525,0,12.235-3.807,14.954-9.789l74.502-171.302c2.176-5.166,1.633-10.876-1.358-15.499c-2.992-4.623-8.158-7.341-13.597-7.341
+                                        H227.993c-8.973,0-16.314,7.341-16.314,16.314c0,8.973,7.341,16.314,16.314,16.314h201.213L368.843,285.75H187.207L120.59,44.839
+                                        c-1.903-7.07-8.429-11.964-15.771-11.964H45.814c-8.973,0-16.314,7.342-16.314,16.314C29.5,58.163,36.841,65.504,45.814,65.504z"
+                                        />
+
+                                <path d="M159.472,433.125c20.393,0,36.979-16.586,36.979-36.979c0-20.393-16.586-36.979-36.979-36.979
+                                        s-36.979,16.585-36.979,36.979S139.079,433.125,159.472,433.125z"/>
+
+                                <path d="M390.596,433.125c0.815,0,1.902,0,2.718,0c9.789-0.815,18.763-5.166,25.288-12.78
+                                        c6.525-7.341,9.517-16.858,8.973-26.919c-1.359-20.121-19.033-35.62-39.426-34.26c-20.394,1.359-35.621,19.306-34.261,39.426
+                                        C355.246,417.897,371.289,433.125,390.596,433.125z"/>
+                            </g>
+                        </svg> -->
+
+
+                    </a>
+                </li>
+                <li>
+                    <a class="button" href="" target="_blank">
+
+                        <svg viewBox="0 -13.25 500 500">
+                            <g>
+                                <path d="M106.77,44.049h286.458c27.205,0,49.464,20.141,49.464,49.463v286.475
+                                    c0,29.322-22.259,49.463-49.464,49.463H106.77c-27.212,0-49.467-20.141-49.467-49.463V93.513
+                                    C57.303,64.19,79.558,44.049,106.77,44.049L106.77,44.049z M338.047,86.866c-9.545,0-17.344,7.806-17.344,17.358v41.526
+                                    c0,9.545,7.799,17.351,17.344,17.351h43.559c9.545,0,17.351-7.806,17.351-17.351v-41.526c0-9.553-7.806-17.358-17.351-17.358
+                                    H338.047L338.047,86.866z M399.142,207.031h-33.921c3.207,10.48,4.946,21.579,4.946,33.067c0,64.102-53.646,116.069-119.8,116.069
+                                    c-66.157,0-119.787-51.968-119.787-116.069c0-11.497,1.731-22.587,4.946-33.067h-35.396v162.801c0,8.424,6.89,15.325,15.318,15.325
+                                    h268.374c8.432,0,15.326-6.894,15.326-15.325V207.031H399.142z M250.367,160.915c-42.748,0-77.403,33.573-77.403,74.999
+                                    c0,41.422,34.655,74.995,77.403,74.995c42.746,0,77.401-33.573,77.401-74.995C327.768,194.488,293.112,160.915,250.367,160.915z"/>
+                            </g>
+                        </svg>
+
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+</div>
+</div>
+
+	<!-- if you don't need support for IE8 use jquery 2.1 -->
+	<!-- <script src="js/vendor/jquery-2.1.0.min.js"></script> -->
+	<script src="js/vendor/jquery-1.11.2.min.js"></script>
+
+	<script src="js/helper.js"></script>
+
+	<!-- uncomment de line below if you need pdf support. And set the option "pdf" in the configuration further below -->
+	<!-- <script type="text/javascript" src="./wow_book/pdf.combined.min.js"></script> -->
+	<script src="./wow_book/wow_book.min.js"></script>
+	<!-- <script src="js/main.js"></script> -->
+	<script>
+	$(window).bind('load',function(){
+		if($(window).width()<=570)
+		{
+			$("#book.wowbook").css("margin-left",(($(".wowbook-book-container").width() - $("p.cover").width())/2) + "px") ;
+		}
+	});
+
+		$(function(){
+
+
+			$(".list nav").click(function(e) {
+				$(this).parent().fadeOut();
+			});
+
+
+
+			var a = 0;
+			$("#show-menu").click(function(e) {
+				if(!a){
+					$("nav").fadeIn();
+					a = 1;
+				}else{
+					$("nav").fadeOut();
+					a = 0;
+				}
+				//e.preventDefault();
+			});
+
+
+
+				var bookOptions = {
+					 height   : 500
+					,width    : 700
+					// ,maxWidth : 800
+					,maxHeight : 500
+
+					,centeredWhenClosed : true
+					,hardcovers : true
+					,toolbar : "first, back, next, last"//, toc, zoomin, zoomout, slideshow, flipsound, fullscreen, thumbnails, download"
+					,thumbnailsPosition : 'left'
+					,responsiveHandleWidth : 50
+
+					,container: window
+					,containerPadding: "20px",
+					pageNumbers : false
+					// ,toolbarContainerPosition: "top" // default "bottom"
+
+					// for pdf files, uncomment the tag script that loads the library "pdf.js".
+					// Then uncomment the line below. The pdf and your webpage must be on the same domain
+					// ,pdf: "url to pdf file"
+
+					// Uncomment the option toc to create a Table of Contents
+					// ,toc: [                    // table of contents in the format
+					// 	[ "Introduction", 2 ],  // [ "title", page number ]
+					// 	[ "First chapter", 5 ],
+					// 	[ "Go to codecanyon.net", "http://codecanyon.net" ] // or [ "title", "url" ]
+					// ]
+				};
+
+
+			$('#book').wowBook( bookOptions ); // create the book
+
+			$(".next").click(function(e) {
+				var book = $.wowBook("#book");
+				book.showPage(2);
+			});
+
+
+			$(".back-cover span").click(function(e) {
+				var book = $.wowBook("#book");
+				book.showPage(0);
+			});
+
+
+			$(".list ul li").click(function(e) {
+				var book = $.wowBook("#book");
+				book.showPage(parseInt($(this).attr('data-id')));
+			});
+			// How to use wowbook API
+			// var book=$.wowBook("#book"); // get book object instance
+			// book.gotoPage( 4 ); // call some method
+			$("#home").click(function(e) {
+				var book = $.wowBook("#book");
+				book.showPage(0);
+			});
+
+		});
+	</script>
+
 </body>
 </html>

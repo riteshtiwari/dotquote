@@ -1,0 +1,47 @@
+@media screen and (max-width:850px) {
+div.the-project {
+	margin: 90px 0 10px;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	width: 100%;
+}
+.big-image img {
+	width: 100%;
+	height: auto;
+}
+div.the-project p {
+	text-align: justify;
+}
+.top-line {
+	width: 93%;
+}
+.bottom-line {
+	width: 93%;
+}
+header {
+	left: 4%;
+	width: 92%;
+	height: 66px;
+}
+.certificate-image img {
+	width: 100%;
+	height: auto;
+}
+div.the-project h1 {
+	font-size: 26px;
+	line-height: 30px;
+	margin-bottom: 0;
+	text-align: center;
+}
+h2.h2 {
+	font-size: 22px;
+	margin: 30px 0;
+	text-align: center;
+}
+div.the-project h1:nth-of-type(2) {
+	margin-top: 40px;
+}
+/*==================850==================*/
+}
