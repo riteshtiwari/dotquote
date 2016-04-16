@@ -128,7 +128,7 @@ function init_book(){
 
 function fill_book(data){
     console.log(data)
-    _t_quote = _.template("<div class='page'><div class='inner-page'><p class='hi'> <%= hi %></p><p class='en'> <%= en %></p> <p><small> - <%= author %></small></p></div>");
+    _t_quote = _.template("<div class='page'><div class='inner-page'><p class='hi'><span class='anuhindi'>A</span> <%= hi %> <span class='anuhindi'>A</span></p><p class='en'> <%= en %></p> <p><small> - <%= author %></small></p></div>");
     _t_detail = _.template("<div class='page'><p class='inner-page'> <%= desc %></p></div>");
 
     var book = $.wowBook("#book");
