@@ -47,15 +47,113 @@ function add_quote(quote){
   add_back_cover()
 }
 
-function init(){
-    $('#quote_book').hide();
-    _t_quote = _.template("<div class='quote'><p class='hi'> <%= quote.hi %></p><p class='en'> <%= quote.en %></p> <p><small> - <%= author %></small></p></div>");
-    _t_detail = _.template("<p class='quote'> <%= detail %></p>");
-     quotes_db = new Firebase('https://glaring-torch-9946.firebaseio.com/quotes');
-    quotes_db.on('child_added', function (quote_ref, prev_quote) {
-        var quote = quote_ref.val()
-        init_ui();
-        add_quote(quote);
-    });
+function init_book(){
+
+      $(".list nav").click(function(e) {
+        $(this).parent().fadeOut();
+      });
+
+
+
+      var a = 0;
+      $("#show-menu").click(function(e) {
+        if(!a){
+          $("nav").fadeIn();
+          a = 1;
+        }else{
+          $("nav").fadeOut();
+          a = 0;
+        }
+        //e.preventDefault();
+      });
+
+
+
+        var bookOptions = {
+           height   : 500
+          ,width    : 700
+          // ,maxWidth : 800
+          ,maxHeight : 500
+
+          ,centeredWhenClosed : true
+          ,hardcovers : true
+          ,toolbar : "first, back, next, last"//, toc, zoomin, zoomout, slideshow, flipsound, fullscreen, thumbnails, download"
+          ,thumbnailsPosition : 'left'
+          ,responsiveHandleWidth : 50
+
+          ,container: window
+          ,containerPadding: "20px",
+          pageNumbers : false
+          // ,toolbarContainerPosition: "top" // default "bottom"
+
+          // for pdf files, uncomment the tag script that loads the library "pdf.js".
+          // Then uncomment the line below. The pdf and your webpage must be on the same domain
+          // ,pdf: "url to pdf file"
+
+          // Uncomment the option toc to create a Table of Contents
+          // ,toc: [                    // table of contents in the format
+          //  [ "Introduction", 2 ],  // [ "title", page number ]
+          //  [ "First chapter", 5 ],
+          //  [ "Go to codecanyon.net", "http://codecanyon.net" ] // or [ "title", "url" ]
+          // ]
+        };
+
+
+      $('#book').wowBook( bookOptions ); // create the book
+
+      $(".next").click(function(e) {
+        var book = $.wowBook("#book");
+        book.showPage(2);
+      });
+
+
+      $(".back-cover span").click(function(e) {
+        var book = $.wowBook("#book");
+        book.showPage(0);
+      });
+
+
+      $(".list ul li").click(function(e) {
+        var book = $.wowBook("#book");
+        book.showPage(parseInt($(this).attr('data-id')));
+      });
+      // How to use wowbook API
+      // var book=$.wowBook("#book"); // get book object instance
+      // book.gotoPage( 4 ); // call some method
+      $("#home").click(function(e) {
+        var book = $.wowBook("#book");
+        book.showPage(0);
+      });
 }
 
+function fill_book(data){
+    console.log(data)
+    _t_quote = _.template("<div class='page'><div class='inner-page'><p class='hi'> <%= hi %></p><p class='en'> <%= en %></p> <p><small> - <%= author %></small></p></div>");
+    _t_detail = _.template("<div class='page'><p class='inner-page'> <%= desc %></p></div>");
+
+    var book = $.wowBook("#book");
+    pages = []
+    // add front cover
+    pages.push("<div class='page'><p class='cover'></p></div>")
+    // add quote pages
+    for(var i=0;i<data['data'].length;i++){
+      var quote = data['data'][i];
+      pages.push(_t_quote(quote))
+      pages.push(_t_detail(quote))
+    }
+    // add back cover
+    pages.push("<div class='page'><p class='back-cover'></p></div>")
+    book.insertPages(pages)
+}
+
+function init(){
+    init_book();
+    $.getJSON( "api/quotes")
+     .done(function(data){
+       fill_book(data);
+     }).fail(function( jqxhr, textStatus, error ) {
+       var err = textStatus + ", " + error;
+       console.log( "Request Failed: " + err );
+       alert(err)
+     });
+}
